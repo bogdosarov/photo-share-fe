@@ -1,0 +1,42 @@
+.wrapper {
+  margin-bottom: 60px;
+  width: 614px;
+  border: solid 1px #e6e6e6;
+  border-radius: 3px;
+  min-height: 400px; // todo: remove after Post will be done
+}
+
+.postHeader {
+  display: flex;
+  padding: 16px;
+}
+
+.profileImage {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+
+.profileLink {
+  margin: -4px 0 5px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  color: #262626;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+}
+
+.locationLink {
+  display: inline-block;
+  font-size: 12px;
+  text-decoration: none;
+  color: #262626;
+  font-family: Arial, sans-serif;
+}

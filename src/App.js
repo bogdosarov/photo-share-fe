@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
-import './App.css'
+import React from 'react'
 
-class App extends Component {
-  render() {
-    return <p>Hello World!</p>
-  }
-}
+import { PostList } from 'components/PostList/PostList'
 
-export default App
+//eslint-disable-next-line
+import styles from './App.module.scss'
+
+export const App = () => <PostList />
