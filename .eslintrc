@@ -1,0 +1,40 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "extends": ["last", "prettier/react", "plugin:react/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "no-duplicate-imports": "error",
+    "prettier/prettier": "error",
+    "react/display-name": "off",
+    "newline-before-return": "error",
+    "arrow-body-style": "error",
+    "newline-after-var": "error"
+  },
+  "globals": {
+    "global": true,
+    "window": true,
+    "document": true,
+    "Headers": true,
+    "Request": true,
+    "FileReader": true,
+    "FormData": true,
+    "Promise": true,
+    "setTimeout": true,
+    "setInterval": true,
+    "fetch": true,
+    "jest": true,
+    "test": true,
+    "expect": true,
+    "describe": true,
+    "beforeEach": true,
+    "beforeAll": true,
+    "afterEach": true,
+    "afterAll": true,
+    "module": true,
+    "Map": true,
+    "URL": true
+  }
+}
