@@ -1,25 +1,8 @@
-import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import React from 'react'
 
-import Home from './views/Home/Home'
-import About from './views/About/About'
+import { PostList } from 'components/PostList/PostList'
 
-import Header from './components/Header/Header'
+//eslint-disable-next-line
+import styles from './App.module.scss'
 
-import './css/app.general.scss'
-
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <Header />
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/about" component={About} />
-        </Switch>
-      </BrowserRouter>
-    )
-  }
-}
-
-export default App
+export const App = () => <PostList />
