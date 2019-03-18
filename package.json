@@ -26,7 +26,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx}'",
-    "lint-fix": "eslint 'src/**/*.{js,jsx}' --fix"
+    "lint-fix": "eslint 'src/**/*.{js,jsx}' --fix",
+    "test:ci": "CI=true && yarn lint",
+    "build:ci": "CI=true && react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
