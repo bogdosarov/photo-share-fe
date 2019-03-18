@@ -17,5 +17,6 @@ steps:
 
 - script: |
     npm install
-    npm run build-ci
-  displayName: 'npm install and build'
+    npm run test:ci
+    npm run build:ci
+  displayName: 'npm install runt tests and build'
