@@ -20,3 +20,4 @@ steps:
     npm run test:ci
     npm run build:ci
   displayName: 'npm install runt tests and build'
+  failOnStderr: true
