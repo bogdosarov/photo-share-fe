@@ -4,6 +4,8 @@ import { get } from 'lodash'
 
 import styles from './Post.module.scss'
 
+const filedPipline = true
+
 export const Post = ({ user, location }) => {
   const userName = get(user, 'userName')
   const userId = get(user, 'id')
