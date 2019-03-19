@@ -3,21 +3,17 @@ import { Link } from 'react-router-dom'
 
 import styles from './Navbar.module.scss'
 
-class NavBar extends React.Component {
-  render() {
-    return (
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="About">About</Link>
-          </li>
-        </ul>
-      </nav>
-    )
-  }
-}
-
-export default NavBar
+export const NavBar = () => (
+  <nav className={styles.nav}>
+    <ul>
+      <li>
+        <Link to="login" className={styles.login}>
+          login
+        </Link>
+      </li>
+      <li>
+        <Link to="Registration">Registration</Link>
+      </li>
+    </ul>
+  </nav>
+)

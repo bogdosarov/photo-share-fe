@@ -1,4 +1,6 @@
-nav {
+.nav {
+  float: right;
+
   ul {
     height: 100%;
     display: flex;
@@ -7,7 +9,7 @@ nav {
   }
 
   li {
-    margin: 0 20px;
+    margin: 0 10px;
     float: left;
     list-style: none;
 
@@ -15,5 +17,19 @@ nav {
       color: #000;
       text-decoration: none;
     }
+  }
+}
+
+.login {
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 1px;
+    height: 16px;
+    background: #000;
+    position: absolute;
+    top: 0px;
+    right: -10px;
   }
 }
