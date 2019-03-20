@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import styles from './PageHeader.module.scss'
-import logo from '../../img/logo.png'
+import logo from './assets/logo.png'
 
 import { NavBar } from 'components/Navbar/Navbar'
 

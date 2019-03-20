@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import { HomePage } from 'views/HomePage/HomePage'
-
 import './App.module.scss'
-import './css/app.general.scss'
+import './styles/app.general.scss'
+
+import { HomePage } from 'views/HomePage/HomePage'
 
 export const App = () => (
   <BrowserRouter>

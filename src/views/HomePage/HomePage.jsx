@@ -8,14 +8,10 @@ import { PageHeader } from 'components/PageHeader/PageHeader'
 
 export const HomePage = () => (
   <Fragment>
-    <Fragment>
-      <PageHeader />
-      <div className={styles.container}>
-        {/*<PageContent>*/}
-        <PostList />
-        <PageSidebar />
-        {/*</PageContent>*/}
-      </div>
-    </Fragment>
+    <PageHeader />
+    <div className={styles.container}>
+      <PostList />
+      <PageSidebar />
+    </div>
   </Fragment>
 )
