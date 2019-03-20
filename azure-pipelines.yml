@@ -17,7 +17,15 @@ steps:
 
 - script: |
     npm install
-    npm run test:ci
-    npm run build:ci
-  displayName: 'npm install runt tests and build'
+  displayName: 'Install dependencies'
   failOnStderr: true
+
+- script: |
+    npm run test:ci
+  displayName: 'Run tests'
+  failOnStderr: true
+
+- script: |
+    npm run build:ci
+  displayName: 'Run build'
+  failOnStderr: true 
