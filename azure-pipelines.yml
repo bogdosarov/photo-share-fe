@@ -18,7 +18,6 @@ steps:
 - script: |
     npm install
   displayName: 'Install dependencies'
-  failOnStderr: true
 
 - script: |
     npm run test:ci
