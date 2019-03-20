@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { NavBar } from 'components/Navbar/Navbar'
+
 import styles from './PageHeader.module.scss'
 import logo from './assets/logo.png'
-
-import { NavBar } from 'components/Navbar/Navbar'
 
 export const PageHeader = () => (
   <header>
