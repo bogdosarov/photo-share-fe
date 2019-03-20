@@ -21,7 +21,6 @@ steps:
   failOnStderr: true
 
 - script: |
-    npm install
     npm run test:ci
   displayName: 'Run tests'
   failOnStderr: true
