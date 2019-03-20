@@ -1,8 +1,15 @@
 import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import { PostList } from 'components/PostList/PostList'
+import './App.module.scss'
+import './styles/app.general.scss'
 
-//eslint-disable-next-line
-import styles from './App.module.scss'
+import { HomePage } from 'views/HomePage/HomePage'
 
-export const App = () => <PostList />
+export const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={HomePage} exact />
+    </Switch>
+  </BrowserRouter>
+)

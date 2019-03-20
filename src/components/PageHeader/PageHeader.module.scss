@@ -1,0 +1,24 @@
+header {
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 30px;
+}
+
+.conteiner {
+  max-width: 965px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  margin: 15px 0;
+  max-width: 180px;
+  display: block;
+  float: left;
+
+  img {
+    width: 100%;
+  }
+}

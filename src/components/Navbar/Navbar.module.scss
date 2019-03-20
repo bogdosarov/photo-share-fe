@@ -1,0 +1,35 @@
+.nav {
+  float: right;
+
+  ul {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  li {
+    margin: 0 10px;
+    float: left;
+    list-style: none;
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}
+
+.login {
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 1px;
+    height: 16px;
+    background: #000;
+    position: absolute;
+    top: 0px;
+    right: -10px;
+  }
+}
