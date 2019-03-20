@@ -12,12 +12,19 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '8.x'
+    versionSpec: '8.11.3'
   displayName: 'Install Node.js'
 
 - script: |
     npm install
+  displayName: 'Install dependencies'
+
+- script: |
     npm run test:ci
-    npm run build:ci
-  displayName: 'npm install runt tests and build'
+  displayName: 'Run tests'
   failOnStderr: true
+
+- script: |
+    npm run build:ci
+  displayName: 'Run build'
+  failOnStderr: true 
