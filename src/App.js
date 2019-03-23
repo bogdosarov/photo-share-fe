@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.module.scss'
 import './styles/app.general.scss'
 
-import { HomePage } from 'views/HomePage/HomePage'
+import { HomePage } from 'pages/HomePage/HomePage'
 
 export const App = () => (
   <BrowserRouter>
