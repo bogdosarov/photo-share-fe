@@ -30,7 +30,7 @@
     "lint": "eslint 'src/**/*.{js,jsx}'",
     "lint-fix": "eslint 'src/**/*.{js,jsx}' --fix",
     "lint:ci": "CI=true yarn lint",
-    "test:ci": "CI=true yarn test",
+    "test:ci": "CI=true yarn test --silent",
     "build:ci": "CI=true && react-scripts build"
   },
   "eslintConfig": {
