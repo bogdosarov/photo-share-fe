@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "eslint-config-last": "^0.0.5",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
@@ -28,7 +29,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx}'",
     "lint-fix": "eslint 'src/**/*.{js,jsx}' --fix",
-    "test:ci": "CI=true && yarn lint",
+    "test:ci": "CI=true yarn lint && CI=true yarn test",
     "build:ci": "CI=true && react-scripts build"
   },
   "eslintConfig": {
@@ -52,5 +53,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "proxy": "http://localhost:3000"
 }
