@@ -29,7 +29,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx}'",
     "lint-fix": "eslint 'src/**/*.{js,jsx}' --fix",
-    "test:ci": "CI=true yarn lint && CI=true yarn test",
+    "lint:ci": "CI=true yarn lint",
+    "test:ci": "CI=true yarn test",
     "build:ci": "CI=true && react-scripts build"
   },
   "eslintConfig": {
