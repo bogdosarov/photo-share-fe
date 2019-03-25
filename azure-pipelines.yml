@@ -22,7 +22,6 @@ steps:
 - script: |
     npm run test:ci
   displayName: 'Run tests'
-  failOnStderr: true
 
 - script: |
     npm run lint:ci
