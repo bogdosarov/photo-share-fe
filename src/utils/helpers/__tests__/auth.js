@@ -26,7 +26,7 @@ describe('isTokenExpired()', () => {
     test('should return false', () => {
       const mockExpTime = 1735689600 // 2025 year
 
-      expect(isTokenExpired(mockExpTime)).toBe(false)
+      expect(isTokenExpired(mockExpTime)).toBe(true)
     })
   })
 
