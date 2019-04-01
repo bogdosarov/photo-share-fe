@@ -7,12 +7,12 @@ export const NavBar = () => (
   <nav className={styles.nav}>
     <ul>
       <li>
-        <Link to="login" className={styles.login}>
+        <Link to="/login" className={styles.login}>
           login
         </Link>
       </li>
       <li>
-        <Link to="Registration">Registration</Link>
+        <Link to="/register">Registration</Link>
       </li>
     </ul>
   </nav>
