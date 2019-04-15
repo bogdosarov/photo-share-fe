@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { HomePage } from 'pages/HomePage/HomePage'
-import RegisterPage from 'pages/RegisterPage/RegisterPage'
+import { RegisterPage } from 'pages/RegisterPage/RegisterPage'
 import { LoginPage } from 'pages/LoginPage/LoginPage'
 
 import './App.module.scss'

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { LoginLayout } from 'components/LoginLayout/LoginLayout'
+import { FormWrapper } from 'components/LoginLayout/FormWrapper'
+import { Button } from 'components/Button/Button'
+import { Input } from 'components/Input/Input'
 
 import styles from './LoginPage.module.scss'
 
@@ -11,50 +13,36 @@ export const LoginPage = () => {
     password: '',
   })
 
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    // console.log(form)
-  }
-
-  const updateField = e => {
+  const handleChange = fildName => value => {
     setValues({
       ...form,
-      [e.target.name]: e.target.value,
+      [fildName]: value,
     })
   }
 
+  const handleSubmit = () => {}
+
   return (
-    <div className={styles.wrapper}>
-      <LoginLayout>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <input
-            value={form.username}
-            name="username"
-            onChange={updateField}
-            placeholder={'Phone number, username, or email'}
-            required
-          />
-          <input
-            value={form.password}
-            name="password"
-            type="password"
-            onChange={updateField}
-            placeholder={'Password'}
-            required
-          />
-          <input className={styles.submit} type="submit" />
-        </form>
+    <FormWrapper>
+      <div className={styles.form}>
+        <Input
+          value={form.username}
+          placeholder="Phone number, username, or email"
+          HandleChenge={handleChange('username')}
+          name="username"
+        />
+        <Input value={form.password} placeholder="Password" HandleChenge={handleChange('password')} name="password" />
+        <Button HandleClick={handleSubmit} buttonName={'Log in'} />
         <div className={styles.separator}>
           <p>or</p>
         </div>
         <p className={styles.forgot_password}>Forgot password?</p>
-      </LoginLayout>
+      </div>
       <div className={styles.bottom_field}>
         <p>
           Dont have an account? <Link to="/register">Sign up</Link>
         </p>
       </div>
-    </div>
+    </FormWrapper>
   )
 }
