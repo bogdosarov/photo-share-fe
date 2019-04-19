@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 import styles from 'components/Button/Button.module.scss'
 
-export const Button = ({ HandleClick, buttonName = 'submit' }) => (
-  <button className={styles.button} onClick={({ target: { value } }) => HandleClick(value)}>
-    {buttonName}
+export const Button = ({ handleClick, children }) => (
+  <button className={styles.button} onClick={({ target: { value } }) => handleClick(value)}>
+    {children}
   </button>
 )
 
 Button.propTypes = {
-  buttonName: PropTypes.string,
-  HandleClick: PropTypes.func.isRequired,
+  children: PropTypes.node,
+  handleClick: PropTypes.func.isRequired,
 }

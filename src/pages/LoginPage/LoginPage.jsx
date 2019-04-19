@@ -28,17 +28,17 @@ export const LoginPage = () => {
         <Input
           value={form.username}
           placeholder="Phone number, username, or email"
-          HandleChenge={handleChange('username')}
+          handleChenge={handleChange('username')}
           name="username"
         />
-        <Input value={form.password} placeholder="Password" HandleChenge={handleChange('password')} name="password" />
-        <Button HandleClick={handleSubmit} buttonName={'Log in'} />
+        <Input value={form.password} placeholder="Password" handleChenge={handleChange('password')} name="password" />
+        <Button handleClick={handleSubmit}>Log in</Button>
         <div className={styles.separator}>
           <p>or</p>
         </div>
-        <p className={styles.forgot_password}>Forgot password?</p>
+        <p className={styles.forgotPassword}>Forgot password?</p>
       </div>
-      <div className={styles.bottom_field}>
+      <div className={styles.bottomField}>
         <p>
           Dont have an account? <Link to="/register">Sign up</Link>
         </p>

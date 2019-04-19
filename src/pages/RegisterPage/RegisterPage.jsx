@@ -34,25 +34,25 @@ export class RegisterPage extends React.Component {
           <Input
             value={this.state.firstName}
             placeholder="First Name"
-            HandleChenge={this.handleChange('firstName')}
+            handleChenge={this.handleChange('firstName')}
             name="firstName"
           />
-          <Input value={this.state.email} placeholder="Email" HandleChenge={this.handleChange('email')} name="email" />
+          <Input value={this.state.email} placeholder="Email" handleChenge={this.handleChange('email')} name="email" />
           <Input
             value={this.state.userName}
             placeholder="Username"
-            HandleChenge={this.handleChange('userName')}
+            handleChenge={this.handleChange('userName')}
             name="username"
           />
           <Input
             value={this.state.password}
             placeholder="Password"
-            HandleChenge={this.handleChange('password')}
+            handleChenge={this.handleChange('password')}
             name="password"
           />
-          <Button HandleClick={this.handleClick} buttonName="Sing us" />
+          <Button handleClick={this.handleClick}>Sing us</Button>
         </div>
-        <div className={styles.bottom_field}>
+        <div className={styles.bottomField}>
           <p>
             Have an account? <Link to="/login">Log in</Link>
           </p>
