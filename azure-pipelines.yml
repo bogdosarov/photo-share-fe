@@ -22,6 +22,10 @@ steps:
 - script: |
     npm run test:ci
   displayName: 'Run tests'
+
+- script: |
+    npm run lint:ci
+  displayName: 'Check eslint'
   failOnStderr: true
 
 - script: |
