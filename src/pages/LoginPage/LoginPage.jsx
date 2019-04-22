@@ -36,7 +36,9 @@ export const LoginPage = () => {
         <div className={styles.separator}>
           <p>or</p>
         </div>
-        <p className={styles.forgotPassword}>Forgot password?</p>
+        <Link className={styles.forgotPassword} to="/reset">
+          Forgot password?
+        </Link>
       </div>
       <div className={styles.bottomField}>
         <p>
