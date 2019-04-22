@@ -38,7 +38,7 @@ export class ResetPage extends React.Component {
             value={this.state.resetField}
             placeholder="Email, Phone, or Username"
             handleChenge={this.handleChange('resetField')}
-            name="firstName"
+            name="resetField"
           />
           <Button handleClick={this.handleClick}>Send Login Link</Button>
 
