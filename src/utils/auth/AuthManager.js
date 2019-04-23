@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { get } from 'lodash'
+import PubSub from 'pubsub-js'
 
 import { authUrl } from 'config/auth.config'
 import { TOKEN_KEY } from 'utils/constants/auth'
@@ -16,6 +17,11 @@ const tokenClient = axios.create({
   },
 })
 
+export const AUTH_EVENTS = {
+  LOGIN: 'LOGIN',
+  LOGOUT: 'LOGOUT',
+}
+
 class AuthManager {
   _token = null
   _tokenParsed = null
@@ -25,7 +31,7 @@ class AuthManager {
     this.storage = new LocalStorageManager()
   }
 
-  _loadTokenFromStorrage() {
+  _loadTokenFromStorage() {
     return new Promise((resolve, reject) => {
       const token = this.storage.getFieldFromStorage(TOKEN_KEY)
 
@@ -38,18 +44,21 @@ class AuthManager {
           this.storage.removeFieldFromStorage(TOKEN_KEY)
           reject('Token is expired.')
         }
+      } else {
+        reject('Cannot load token from storage.')
       }
     })
   }
 
   init() {
     return new Promise((resolve, reject) => {
-      this._loadTokenFromStorrage()
+      this._loadTokenFromStorage()
         .then(({ token, tokenParsed }) => {
           this._token = token
           this._tokenParsed = tokenParsed
           this.authenticated = true
 
+          PubSub.publish(AUTH_EVENTS.LOGIN)
           resolve(this.authenticated)
         })
         .catch(() => reject(this.authenticated))
@@ -73,6 +82,7 @@ class AuthManager {
           this.storage.setFieldInStorage({ name: TOKEN_KEY, value: token })
           this.authenticated = true
 
+          PubSub.publish(AUTH_EVENTS.LOGIN)
           resolve(this.authenticated)
         })
         .catch(err => reject(err))
@@ -82,10 +92,17 @@ class AuthManager {
   logout() {
     this.storage.removeFieldFromStorage(TOKEN_KEY)
     this.authenticated = false
+    PubSub.publish(AUTH_EVENTS.LOGOUT)
   }
 
   getToken() {
     return this._token
+  }
+
+  on(eventType, listener) {
+    const subscriber = PubSub.subscribe(eventType, listener)
+
+    return () => PubSub.unsubscribe(subscriber)
   }
 }
 
