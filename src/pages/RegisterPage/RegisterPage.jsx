@@ -1,20 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import { compose } from 'redux'
+import PropTypes from 'prop-types'
 
+import { API } from 'utils/api/api'
+import { AuthManagerInstance } from 'utils/auth/AuthManager'
 import { FormWrapper } from 'components/LoginLayout/FormWrapper'
 import { Button } from 'components/Button/Button'
 import { Input } from 'components/Input/Input'
 
 import styles from './RegisterPage.module.scss'
 
-export class RegisterPage extends React.Component {
+export class RegisterPageView extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      firstName: '',
-      email: '',
+      fullName: '',
       userName: '',
+      email: '',
       password: '',
     }
   }
@@ -25,7 +29,16 @@ export class RegisterPage extends React.Component {
     })
   }
 
-  handleClick = () => {}
+  handleSign = async () => {
+    try {
+      await API.post('/signup', this.state)
+      await AuthManagerInstance.login({ email: this.state.email, password: this.state.password })
+      this.props.history.push('/')
+    } catch (err) {
+      // eslint-disable-next-line
+      console.log('Failed to create account') // todo: add toast message.
+    }
+  }
 
   render() {
     return (
@@ -33,9 +46,9 @@ export class RegisterPage extends React.Component {
         <div className={styles.form}>
           <Input
             value={this.state.firstName}
-            placeholder="First Name"
-            handleChenge={this.handleChange('firstName')}
-            name="firstName"
+            placeholder="Full Name"
+            handleChenge={this.handleChange('fullName')}
+            name="fullName"
           />
           <Input value={this.state.email} placeholder="Email" handleChenge={this.handleChange('email')} name="email" />
           <Input
@@ -49,8 +62,9 @@ export class RegisterPage extends React.Component {
             placeholder="Password"
             handleChenge={this.handleChange('password')}
             name="password"
+            type="password"
           />
-          <Button handleClick={this.handleClick}>Sing us</Button>
+          <Button handleClick={this.handleSign}>Sing us</Button>
         </div>
         <div className={styles.bottomField}>
           <p>
@@ -61,3 +75,11 @@ export class RegisterPage extends React.Component {
     )
   }
 }
+
+RegisterPageView.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+}
+
+export const RegisterPage = compose(withRouter)(RegisterPageView)

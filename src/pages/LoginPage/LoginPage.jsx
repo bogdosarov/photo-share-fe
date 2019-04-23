@@ -1,38 +1,56 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { Link, withRouter } from 'react-router-dom'
+import { compose } from 'redux'
 
+import { AuthManagerInstance } from 'utils/auth/AuthManager'
 import { FormWrapper } from 'components/LoginLayout/FormWrapper'
 import { Button } from 'components/Button/Button'
 import { Input } from 'components/Input/Input'
 
 import styles from './LoginPage.module.scss'
 
-export const LoginPage = () => {
+const LoginPageView = ({ history }) => {
   const [form, setValues] = useState({
-    username: '',
+    email: '',
     password: '',
   })
+  const [isPending, setIsPending] = useState(false)
 
-  const handleChange = fildName => value => {
+  const handleChange = fieldName => value => {
     setValues({
       ...form,
-      [fildName]: value,
+      [fieldName]: value,
     })
   }
 
-  const handleSubmit = () => {}
+  const handleLogin = () => {
+    setIsPending(true)
+
+    AuthManagerInstance.login(form)
+      .then(() => history.replace('/'))
+      .catch(() => setIsPending(false))
+  }
 
   return (
     <FormWrapper>
       <div className={styles.form}>
         <Input
-          value={form.username}
+          value={form.email}
           placeholder="Phone number, username, or email"
-          handleChenge={handleChange('username')}
+          handleChenge={handleChange('email')}
           name="username"
         />
-        <Input value={form.password} placeholder="Password" handleChenge={handleChange('password')} name="password" />
-        <Button handleClick={handleSubmit}>Log in</Button>
+        <Input
+          value={form.password}
+          placeholder="Password"
+          handleChenge={handleChange('password')}
+          name="password"
+          type="password"
+        />
+        <Button handleClick={handleLogin} isLoading={isPending}>
+          Log in
+        </Button>
         <div className={styles.separator}>
           <p>or</p>
         </div>
@@ -48,3 +66,11 @@ export const LoginPage = () => {
     </FormWrapper>
   )
 }
+
+LoginPageView.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+}
+
+export const LoginPage = compose(withRouter)(LoginPageView)
