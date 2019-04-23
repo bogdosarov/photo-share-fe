@@ -1,4 +1,4 @@
 export const apiConfig = {
-  baseURL: '/api',
+  baseURL: '/',
   responseType: 'json',
 }

@@ -1,15 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'class-names'
+import Spinner from 'react-spinkit'
 
-import styles from 'components/Button/Button.module.scss'
+import styles from './Button.module.scss'
 
-export const Button = ({ handleClick, children }) => (
-  <button className={styles.button} onClick={({ target: { value } }) => handleClick(value)}>
-    {children}
+export const Button = ({ isLoading, handleClick, children }) => (
+  <button
+    className={classNames(styles.button, { [styles.loading]: isLoading })}
+    onClick={({ target: { value } }) => handleClick(value)}>
+    {isLoading && <Spinner fadeIn="none" name="three-bounce" />}
+    {!isLoading && <span>{children}</span>}
   </button>
 )
 
 Button.propTypes = {
+  isLoading: PropTypes.bool,
   children: PropTypes.node,
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func,
 }
