@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Spinner from 'react-spinkit'
 
-import { AuthManagerInstance } from 'utils/auth/AuthManager'
+import { AUTH_EVENTS, AuthManagerInstance } from 'utils/auth/AuthManager'
 import { HomePage } from 'pages/HomePage/HomePage'
 import { RegisterPage } from 'pages/RegisterPage/RegisterPage'
 import { LoginPage } from 'pages/LoginPage/LoginPage'
@@ -37,6 +37,10 @@ export class App extends Component {
           isAuthenticated: AuthManagerInstance.authenticated,
         })
       })
+
+    AuthManagerInstance.on(AUTH_EVENTS.LOGOUT, () => {
+      this.setState({ isAuthenticated: false })
+    })
   }
 
   render() {
