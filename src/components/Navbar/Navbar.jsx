@@ -21,7 +21,7 @@ const renderGuestLinks = () => (
 const renderUserLinks = () => (
   <ul>
     <li>
-      <Link to="/" onClick={AuthManagerInstance.logout()}>
+      <Link to="/" onClick={() => AuthManagerInstance.logout()}>
         Logout
       </Link>
     </li>

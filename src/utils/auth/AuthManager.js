@@ -1,21 +1,10 @@
-import axios from 'axios'
 import { get } from 'lodash'
 import PubSub from 'pubsub-js'
 
-import { authUrl } from 'config/auth.config'
+import { API } from 'utils/api/api'
 import { TOKEN_KEY } from 'utils/constants/auth'
 import { decodeToken, isTokenExpired } from 'utils/helpers/auth'
 import { LocalStorageManager } from 'utils/auth/LocalStorageManger'
-
-const tokenClient = axios.create({
-  baseURL: authUrl,
-  responseType: 'json',
-  timeout: 10000,
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Content-type': 'application/json',
-  },
-})
 
 export const AUTH_EVENTS = {
   LOGIN: 'LOGIN',
@@ -67,16 +56,15 @@ class AuthManager {
 
   login({ email, password }) {
     return new Promise((resolve, reject) => {
-      tokenClient
-        .request({
-          url: '/login',
-          method: 'post',
-          withCredentials: true,
-          data: JSON.stringify({
-            email,
-            password,
-          }),
-        })
+      API.request({
+        url: '/login',
+        method: 'post',
+        withCredentials: true,
+        data: JSON.stringify({
+          email,
+          password,
+        }),
+      })
         .then(({ data: { token } }) => {
           this._token = token
           this.storage.setFieldInStorage({ name: TOKEN_KEY, value: token })
