@@ -38,13 +38,13 @@ const LoginPageView = ({ history }) => {
         <Input
           value={form.email}
           placeholder="Phone number, username, or email"
-          handleChenge={handleChange('email')}
+          handleChange={handleChange('email')}
           name="username"
         />
         <Input
           value={form.password}
           placeholder="Password"
-          handleChenge={handleChange('password')}
+          handleChange={handleChange('password')}
           name="password"
           type="password"
         />

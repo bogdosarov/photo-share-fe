@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { FormWrapper } from 'components/LoginLayout/FormWrapper'
@@ -7,56 +7,46 @@ import { Input } from 'components/Input/Input'
 
 import styles from './ResetPage.module.scss'
 
-export class ResetPage extends React.Component {
-  constructor(props) {
-    super(props)
+export const ResetPage = () => {
+  const bodyText = "Enter your username or email and we'll send you a link to get back into your account."
+  const titleText = 'Trouble Logging In?'
+  const [resetField, setResetField] = useState('')
 
-    this.state = {
-      titleText: 'Trouble Logging In?',
-      bodyText: "Enter your username or email and we'll send you a link to get back into your account.",
-      resetField: '',
-    }
+  const handleChange = value => {
+    setResetField(value)
   }
 
-  handleChange = resetField => value => {
-    this.setState({
-      [resetField]: value,
-    })
-  }
+  const handleReset = () => {}
 
-  handleClick = () => {}
-
-  render() {
-    return (
-      <FormWrapper>
-        <div className={styles.form}>
-          <div className={styles.titleReset}>
-            <strong>{this.state.titleText}</strong>
-            <p>{this.state.bodyText}</p>
-          </div>
-          <Input
-            value={this.state.resetField}
-            placeholder="Email, Phone, or Username"
-            handleChenge={this.handleChange('resetField')}
-            name="resetField"
-          />
-          <Button handleClick={this.handleClick}>Send Login Link</Button>
-
-          <div className={styles.separator}>
-            <p>or</p>
-          </div>
-
-          <Link className={styles.linkReset} to="/register">
-            <strong>Create New Account</strong>
-          </Link>
-
-          <div className={styles.bottomField}>
-            <Link className={styles.linkReset} to="/login">
-              <strong>Back To Login</strong>
-            </Link>
-          </div>
+  return (
+    <FormWrapper>
+      <div className={styles.form}>
+        <div className={styles.titleReset}>
+          <strong>{titleText}</strong>
+          <p>{bodyText}</p>
         </div>
-      </FormWrapper>
-    )
-  }
+        <Input
+          value={resetField}
+          placeholder="Email, Phone, or Username"
+          handleChange={handleChange}
+          name="resetField"
+        />
+
+        <Button handleClick={handleReset}>Send Login Link</Button>
+
+        <div className={styles.separator}>
+          <p>or</p>
+        </div>
+        <Link className={styles.linkReset} to="/register">
+          <strong>Create New Account</strong>
+        </Link>
+
+        <div className={styles.bottomField}>
+          <Link className={styles.linkReset} to="/login">
+            <strong>Back To Login</strong>
+          </Link>
+        </div>
+      </div>
+    </FormWrapper>
+  )
 }
