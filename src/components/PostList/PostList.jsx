@@ -16,6 +16,7 @@ const mockPostList = [
       title: 'Location title',
       link: 'https://googole.com',
     },
+    postPicture: 'https://via.placeholder.com/614x420',
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ const mockPostList = [
       title: 'Location title',
       link: 'https://googole.com',
     },
+    postPicture: 'https://via.placeholder.com/614x620',
   },
 ]
 

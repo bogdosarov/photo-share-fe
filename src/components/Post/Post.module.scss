@@ -40,3 +40,56 @@
   color: #262626;
   font-family: Arial, sans-serif;
 }
+
+.postSectionWrapper {
+  display: flex;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 5px;
+}
+
+.actionButtonWrap {
+  &:first-child {
+    margin-left: -8px;
+  }
+  &:last-child {
+    margin-left: auto;
+    margin-right: -8px;
+  }
+}
+
+.actionButton {
+  min-height: 40px;
+  min-width: 40px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.actionButtonIcon {
+  font-size: 24px;
+}
+
+.commentList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.commentAuthor {
+  display: inline-block;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.postDate {
+  font-size: 10px;
+  color: #999;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
