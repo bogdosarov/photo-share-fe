@@ -69,7 +69,7 @@ export const Post = ({ user, location, postPicture }) => {
       <div className={styles.postSectionWrapper}>
         <div className="likesSection">
           <div className="likesInfo">
-            <span>37</span>
+            <span>38</span>
             Likes
           </div>
         </div>
