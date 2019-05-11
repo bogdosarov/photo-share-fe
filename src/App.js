@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Spinner from 'react-spinkit'
 
 import { AUTH_EVENTS, AuthManagerInstance } from 'utils/auth/AuthManager'
 import { HomePage } from 'pages/HomePage/HomePage'
 import { RegisterPage } from 'pages/RegisterPage/RegisterPage'
 import { LoginPage } from 'pages/LoginPage/LoginPage'
+import { ResetPage } from 'pages/ResetPage/ResetPage'
+import { NotFound } from 'pages/404Page/NotFound'
 
 import './App.module.scss'
 import './styles/app.general.scss'
@@ -13,11 +15,14 @@ import './styles/app.general.scss'
 const renderUserRoutes = () => <Route path="/" component={HomePage} exact />
 
 const renderGuestRoutes = () => (
-  <Fragment>
+  <Switch>
     <Route path="/" component={HomePage} exact />
     <Route path="/register" component={RegisterPage} />
     <Route path="/login" component={LoginPage} />
-  </Fragment>
+    <Route path="/reset" component={ResetPage} />
+    <Route path="/404" component={NotFound} />
+    <Redirect from="*" to="/404" />
+  </Switch>
 )
 
 export class App extends Component {

@@ -47,20 +47,20 @@ export class RegisterPageView extends React.Component {
           <Input
             value={this.state.firstName}
             placeholder="Full Name"
-            handleChenge={this.handleChange('fullName')}
+            handleChange={this.handleChange('fullName')}
             name="fullName"
           />
-          <Input value={this.state.email} placeholder="Email" handleChenge={this.handleChange('email')} name="email" />
+          <Input value={this.state.email} placeholder="Email" handleChange={this.handleChange('email')} name="email" />
           <Input
             value={this.state.userName}
             placeholder="Username"
-            handleChenge={this.handleChange('userName')}
+            handleChange={this.handleChange('userName')}
             name="username"
           />
           <Input
             value={this.state.password}
             placeholder="Password"
-            handleChenge={this.handleChange('password')}
+            handleChange={this.handleChange('password')}
             name="password"
             type="password"
           />

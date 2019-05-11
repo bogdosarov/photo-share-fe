@@ -38,13 +38,13 @@ const LoginPageView = ({ history }) => {
         <Input
           value={form.email}
           placeholder="Phone number, username, or email"
-          handleChenge={handleChange('email')}
+          handleChange={handleChange('email')}
           name="username"
         />
         <Input
           value={form.password}
           placeholder="Password"
-          handleChenge={handleChange('password')}
+          handleChange={handleChange('password')}
           name="password"
           type="password"
         />
@@ -54,7 +54,9 @@ const LoginPageView = ({ history }) => {
         <div className={styles.separator}>
           <p>or</p>
         </div>
-        <p className={styles.forgotPassword}>Forgot password?</p>
+        <Link className={styles.forgotPassword} to="/reset">
+          Forgot password?
+        </Link>
       </div>
       <div className={styles.bottomField}>
         <p>
